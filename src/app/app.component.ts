@@ -15,21 +15,24 @@ export class AppComponent {
   greyBoxActive = false;
 
   form = new FormGroup({
-    greenPosition1: new FormControl(''),
-    greenPosition2: new FormControl(''),
-    greenPosition3: new FormControl(''),
-    greenPosition4: new FormControl(''),
-    greenPosition5: new FormControl(''),
-    greyString: new FormControl(''),
-    yellowPosition1: new FormControl(''),
-    yellowPosition2: new FormControl(''),
-    yellowPosition3: new FormControl(''),
-    yellowPosition4: new FormControl(''),
-    yellowPosition5: new FormControl('')
+    greenPosition1: new FormControl('', {nonNullable: true}),
+    greenPosition2: new FormControl('', {nonNullable: true}),
+    greenPosition3: new FormControl('', {nonNullable: true}),
+    greenPosition4: new FormControl('', {nonNullable: true}),
+    greenPosition5: new FormControl('', {nonNullable: true}),
+    greyString: new FormControl('', {nonNullable: true}),
+    yellowPosition1: new FormControl('', {nonNullable: true}),
+    yellowPosition2: new FormControl('', {nonNullable: true}),
+    yellowPosition3: new FormControl('', {nonNullable: true}),
+    yellowPosition4: new FormControl('', {nonNullable: true}),
+    yellowPosition5: new FormControl('', {nonNullable: true})
   });
 
   onSubmit() {
     const formValues:any = this.form.value;
+
+    console.log(formValues);
+    
     
     Object.keys(formValues).forEach(key => {
       formValues[key] = formValues[key].toLowerCase();

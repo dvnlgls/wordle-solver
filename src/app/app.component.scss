@@ -1,6 +1,7 @@
 .page {
   background-color: #212024;
   color: #fff;
+  min-height: 100vw;
 }
 
 .page-container {
@@ -19,10 +20,24 @@
   text-align: center;
 }
 
+.title-section {
+	margin: 0;
+	padding: 10px 0;
+	font-size: 20px;
+	letter-spacing: 0.03em;
+}
+
 .form{
   display: grid;
-  row-gap: 30px;
+  row-gap: 45px;
   justify-self: center;
+}
+
+.green {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(5, 50px);
+  column-gap: 25px;
 }
 
 .green input[type="text"] {
@@ -105,8 +120,31 @@
 }
 
 .possible-words {
+  margin-left: 100px;
+}
+
+.possible-words ul li{
   margin: 9px 0;
   font-size: 20px;
+}
+
+.tips-main {
+  text-align: center;
+  display: grid;
+  color: #feedda;
+  border: 1px solid #fff2ac;
+  width: 300px;
+  justify-self: center;
+  border-radius: 3px;
+  padding: 13px 10px;
+  row-gap: 5px;
+  margin-bottom: 35px;
+}
+
+.tips-section {
+	font-style: italic;
+	opacity: 0.8;
+	margin-bottom: 20px;
 }
 
 .button {
