@@ -1,0 +1,167 @@
+.page {
+  background-color: #212024;
+  color: #fff;
+}
+
+.page-container {
+  display: grid;
+  margin: 0 auto;
+  max-width: 600px;
+  font-family: Inter,sans-serif;
+}
+
+.title {
+  font-size: 3em;
+  text-transform: uppercase;
+  margin: 65px 0;
+  font-weight: bold;
+  border-bottom: 1px solid #6ef576;
+  text-align: center;
+}
+
+.form{
+  display: grid;
+  row-gap: 30px;
+  justify-self: center;
+}
+
+.green input[type="text"] {
+  width: 50px;
+  font-size: 2em;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  margin-right: 10px;
+  border: 1px solid transparent;
+}
+
+.green .active {
+  background-color: #6aaa64;
+  color: #fff;
+}
+
+.grey {
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  letter-spacing: 3px;
+  width: 328px;
+  border: 1px solid transparent;
+}
+
+.grey-active {
+  background-color: #787c7e;
+  color: #fff;
+}
+
+.yellow {
+  display: grid;
+  grid-template-columns: 50px 300px;
+  margin-bottom: 15px;
+}
+
+.yellow .active {
+  background-color: #d1b539;
+  color: #fff;
+}
+
+.yellow input[type="text"] {
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  letter-spacing: 3px;
+  border: 1px solid transparent;
+}
+
+.yellow h4 {
+  margin: 0;
+  font-size: 20px;
+  align-self: center;
+  font-family: Inter,sans-serif;
+  letter-spacing: 5px;
+}
+
+.btn-group {
+  display: grid;
+  margin: 50px 0;
+  justify-self: center;
+  justify-items: center;
+}
+
+.submit {
+  background-color: #6ef576;
+  width: 250px;
+}
+
+.reset {
+  background-color: #f5ccd3;
+  width: 75px;
+  margin-top: 40px;
+}
+
+.possible-words {
+  margin: 9px 0;
+  font-size: 20px;
+}
+
+.button {
+  align-items: center;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button:hover:after {
+  transform: translate(0, 0);
+}
+
+.button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0 40px;
+  }
+}
