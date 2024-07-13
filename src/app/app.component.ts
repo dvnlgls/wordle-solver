@@ -7,8 +7,6 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Wordle Solver';
-
   filteredWords: string[] = [];
   greenBoxActive: boolean[] = [false, false, false, false, false];
   yellowBoxActive: boolean[] = [false, false, false, false, false];

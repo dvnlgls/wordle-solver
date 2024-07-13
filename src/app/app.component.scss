@@ -11,13 +11,46 @@
   font-family: Inter,sans-serif;
 }
 
-.title {
-  font-size: 3em;
-  text-transform: uppercase;
+.title-main {
   margin: 65px 0;
+  outline: 0;
+  border: 1px solid #166b05;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index: 1;
+  width: 80%;
+  max-width: 350px;
+  justify-self: center;
+  display: grid;
+  padding-left: 20px;
+}
+
+.title-main:after {
+  content: "";
+  background-color: #25970e;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.title-main .hello{
+  font-size: 16px;
+  text-transform: capitalize;
+  padding-top: 16px;
+}
+
+.title-main .wordle{
+  font-size: 3em;
   font-weight: bold;
-  border-bottom: 1px solid #6ef576;
-  text-align: center;
+  line-height: 1;
 }
 
 .title-section {
@@ -129,16 +162,14 @@
 }
 
 .tips-main {
-  text-align: center;
   display: grid;
   color: #feedda;
-  border: 1px solid #fff2ac;
+  border-left: 2px solid #fff2ac;
   width: 300px;
   justify-self: center;
-  border-radius: 3px;
-  padding: 13px 10px;
   row-gap: 5px;
   margin-bottom: 35px;
+  padding-left: 15px;
 }
 
 .tips-section {
@@ -196,10 +227,4 @@
 
 .button:hover {
   outline: 0;
-}
-
-@media (min-width: 768px) {
-  .button {
-    padding: 0 40px;
-  }
 }
