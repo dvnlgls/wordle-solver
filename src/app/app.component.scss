@@ -53,6 +53,26 @@
   line-height: 1;
 }
 
+.title-main .line {
+  height: 1px;
+  width: 135px;
+  background-color: white;
+  position: absolute;
+  top: 69px;
+  right: -6px;
+  opacity: 0.6;
+}
+
+.title-main .line-end {
+  height: 5px;
+  width: 5px;
+  background-color: white;
+  position: absolute;
+  top: 67px;
+  right: 129px;
+  opacity: 0.6;
+}
+
 .title-section {
 	margin: 0;
 	padding: 10px 0;
