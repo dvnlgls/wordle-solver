@@ -76,8 +76,10 @@
 
     <div class="possible-words">
       <h3>Possible words: {{ filteredWords.length ? filteredWords.length : '' }}</h3>
-      <ul>
-        <li *ngFor="let word of filteredWords;">{{word}}</li>
+      <ul role="list">
+        <li *ngFor="let word of filteredWords;">
+          <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
+        </li>
       </ul>
     </div>
   </div>

@@ -173,12 +173,28 @@
 }
 
 .possible-words {
-  margin-left: 100px;
+  margin-bottom: 100px;
+  justify-self: center;
+  width: 80%;
+}
+
+.possible-words ul {
+  columns: 3;
 }
 
 .possible-words ul li{
-  margin: 9px 0;
-  font-size: 20px;
+  font-size: 19px;
+  list-style: square;
+  line-height: 45px;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  a {
+    text-decoration: underline dotted;
+    color: #fff;
+    text-underline-offset: 6px;
+  }
 }
 
 .tips-main {
