@@ -13,25 +13,22 @@ export class AppComponent {
   greyBoxActive = false;
 
   form = new FormGroup({
-    greenPosition1: new FormControl('', {nonNullable: true}),
-    greenPosition2: new FormControl('', {nonNullable: true}),
-    greenPosition3: new FormControl('', {nonNullable: true}),
-    greenPosition4: new FormControl('', {nonNullable: true}),
-    greenPosition5: new FormControl('', {nonNullable: true}),
-    greyString: new FormControl('', {nonNullable: true}),
-    yellowPosition1: new FormControl('', {nonNullable: true}),
-    yellowPosition2: new FormControl('', {nonNullable: true}),
-    yellowPosition3: new FormControl('', {nonNullable: true}),
-    yellowPosition4: new FormControl('', {nonNullable: true}),
-    yellowPosition5: new FormControl('', {nonNullable: true})
+    greenPosition1: new FormControl('', { nonNullable: true }),
+    greenPosition2: new FormControl('', { nonNullable: true }),
+    greenPosition3: new FormControl('', { nonNullable: true }),
+    greenPosition4: new FormControl('', { nonNullable: true }),
+    greenPosition5: new FormControl('', { nonNullable: true }),
+    greyString: new FormControl('', { nonNullable: true }),
+    yellowPosition1: new FormControl('', { nonNullable: true }),
+    yellowPosition2: new FormControl('', { nonNullable: true }),
+    yellowPosition3: new FormControl('', { nonNullable: true }),
+    yellowPosition4: new FormControl('', { nonNullable: true }),
+    yellowPosition5: new FormControl('', { nonNullable: true })
   });
 
   onSubmit() {
-    const formValues:any = this.form.value;
+    const formValues: any = this.form.value;
 
-    console.log(formValues);
-    
-    
     Object.keys(formValues).forEach(key => {
       formValues[key] = formValues[key].toLowerCase();
     });
@@ -74,9 +71,21 @@ export class AppComponent {
   }
 }
 
+function sanitizeString(str: string): string {
+  let result = '';
+
+  // replace all spaces
+  result = str.replaceAll(' ', '');
+
+  // remove duplicate letters
+  result = removeDuplicateLetters(result);
+
+  return result;
+}
+
 function removeDuplicateLetters(str: string) {
   let result = '';
-  if(!str) return result;
+  if (!str) return result;
 
   const unique = new Set();
 
@@ -94,9 +103,6 @@ function removeDuplicateLetters(str: string) {
 function getFilteredWords(formValues: object): string[] {
 
   const result: string[] = [];
-
-  // @ts-ignore
-  const { greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5, greyString, yellowPosition1, yellowPosition2, yellowPosition3, yellowPosition4, yellowPosition5 } = formValues;
 
   const wordList: string[] = ['aahed',
     'aalii',
@@ -16019,10 +16025,14 @@ function getFilteredWords(formValues: object): string[] {
     'zulus',
     'zunis']
 
+  // @ts-ignore
+  const { greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5, greyString, yellowPosition1, yellowPosition2, yellowPosition3, yellowPosition4, yellowPosition5 } = formValues;
   const exactlyInPosition = [greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5];
-  let lettersToExclude: (string | string[]) = removeDuplicateLetters(greyString);
+
+  let lettersToExclude: (string | string[]) = sanitizeString(greyString);
   lettersToExclude = removeGreenLettersPresentInGrey(lettersToExclude, exactlyInPosition).split('');
-  const presentButNotInPosition = [removeDuplicateLetters(yellowPosition1), removeDuplicateLetters(yellowPosition2), removeDuplicateLetters(yellowPosition3), removeDuplicateLetters(yellowPosition4), removeDuplicateLetters(yellowPosition5)];
+
+  const presentButNotInPosition = [sanitizeString(yellowPosition1), sanitizeString(yellowPosition2), sanitizeString(yellowPosition3), sanitizeString(yellowPosition4), sanitizeString(yellowPosition5)];
 
   for (const word of wordList) {
 
@@ -16076,6 +16086,6 @@ function removeGreenLettersPresentInGrey(greyLetters: string, greenLetters: stri
       result += v;
     }
   });
-  
+
   return result;
 }

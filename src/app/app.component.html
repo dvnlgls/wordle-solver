@@ -13,7 +13,7 @@
     </div>
     <form [formGroup]="form" class="form">
       <div>
-        <h3 class="title-section">Exactly in position (Green)</h3>
+        <h3 class="title-section">Green Letters</h3>
         <div class="green">
           <input type="text" name="" [ngClass]="greenBoxActive[0] ? 'active':''" formControlName="greenPosition1"
             maxlength="1" (input)="onGreenBoxChange($event, 0)">
@@ -29,18 +29,18 @@
       </div>
 
       <div>
-        <h3 class="title-section">Letters to exclude (Grey)</h3>
+        <h3 class="title-section">Grey Letters</h3>
         <div class="tips-section">
-          <span>Type in any order. Without space</span>
+          <span>Type in any order.</span>
         </div>
         <input class="grey" [ngClass]="greyBoxActive ? 'grey-active':''" type="text" name="" maxlength="21"
           formControlName="greyString" (input)="onGreyBoxChange($event)">
       </div>
 
       <div>
-        <h3 class="title-section">Letters not in position (Yellow)</h3>
+        <h3 class="title-section">Yellow Letters</h3>
         <div class="tips-section">
-          <span>Type in any order. Without space</span>
+          <span>Type in any order.</span>
         </div>
         <div class="yellow">
           <h4>P1</h4>
