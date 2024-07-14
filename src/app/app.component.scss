@@ -172,23 +172,23 @@
   margin-top: 40px;
 }
 
-.possible-words {
+.result-words {
   margin-bottom: 100px;
   justify-self: center;
   width: 80%;
 }
 
-.possible-words .tip{
+.result-words .tip{
   font-style: italic;
   opacity: 0.8;
   color: #ffda4a;
 }
 
-.possible-words ul {
+.result-words ul {
   columns: 3;
 }
 
-.possible-words ul li{
+.result-words ul li{
   font-size: 19px;
   list-style: square;
   line-height: 45px;
