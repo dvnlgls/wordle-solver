@@ -173,7 +173,7 @@
 }
 
 .result-words {
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   justify-self: center;
   width: 80%;
 }
@@ -270,4 +270,20 @@
 
 .button:hover {
   outline: 0;
+}
+
+.footer {
+  margin-bottom: 100px;
+  opacity: 0.8;
+  max-width: 80%;
+  justify-self: center;
+}
+
+.footnotes {
+  margin-bottom: 25px;
+
+  div {
+    margin-bottom: 10px;
+    line-height: 20px;
+  }
 }
