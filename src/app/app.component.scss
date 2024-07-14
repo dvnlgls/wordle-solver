@@ -277,6 +277,10 @@
   opacity: 0.8;
   max-width: 80%;
   justify-self: center;
+
+  a {
+    color: inherit;
+  }
 }
 
 .footnotes {
