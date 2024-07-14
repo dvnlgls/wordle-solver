@@ -76,6 +76,7 @@
 
     <div class="possible-words">
       <h3>Possible words: {{ filteredWords.length ? filteredWords.length : '' }}</h3>
+      <div *ngIf="filteredWords.length > 0" class="tip">&#9432; click the word to see its meaning.</div>
       <ul role="list">
         <li *ngFor="let word of filteredWords;">
           <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
