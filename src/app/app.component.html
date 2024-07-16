@@ -79,6 +79,7 @@
       <div *ngIf="mostLikelyWords.length > 0" class="tip">&#9432; click the word to see its meaning.</div>
       <div class="result-list">
         <div *ngFor="let word of mostLikelyWords;">
+          <div *ngIf="word in mostLikelyWords"></div>
           <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
         </div>
       </div>
@@ -86,9 +87,10 @@
 
     <div class="result-words">
       <h3>All possible words<sup> [2]</sup> {{ filteredWords.length ? filteredWords.length : '' }}</h3>
+      <div *ngIf="filteredWords.length > 0" class="tip">&#9432; Popular words are highlighted.</div>
       <div class="result-list">
         <div *ngFor="let word of filteredWords;">
-          <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
+          <a [ngClass]="(commonWords.includes(word) || mostLikelyWords.includes(word)) ? 'common':''" target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
         </div>
       </div>
     </div>

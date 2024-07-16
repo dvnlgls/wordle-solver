@@ -8,7 +8,7 @@
   display: grid;
   margin: 0 auto;
   max-width: 600px;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 .title-main {
@@ -41,13 +41,13 @@
   transition: 0.2s;
 }
 
-.title-main .hello{
+.title-main .hello {
   font-size: 16px;
   text-transform: capitalize;
   padding-top: 16px;
 }
 
-.title-main .wordle{
+.title-main .wordle {
   font-size: 3em;
   font-weight: bold;
   line-height: 1;
@@ -74,13 +74,13 @@
 }
 
 .title-section {
-	margin: 0;
-	padding: 10px 0;
-	font-size: 20px;
-	letter-spacing: 0.03em;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 20px;
+  letter-spacing: 0.03em;
 }
 
-.form{
+.form {
   display: grid;
   row-gap: 45px;
   justify-self: center;
@@ -150,7 +150,7 @@
   margin: 0;
   font-size: 20px;
   align-self: center;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   letter-spacing: 5px;
 }
 
@@ -177,15 +177,22 @@
   justify-self: center;
   width: 80%;
 
+  h3 {
+    margin-bottom: 5px;
+  }
+  
   sup {
     font-size: 10px;
   }
 }
 
-.result-words .tip{
+.result-words .tip {
   font-style: italic;
   opacity: 0.8;
   color: #ffda4a;
+  margin-bottom: 20px;
+
+
 }
 
 .result-list {
@@ -204,6 +211,12 @@
     text-decoration: underline dotted;
     color: #fff;
     text-underline-offset: 6px;
+    padding: 3px 5px;
+    border-radius: 3px;
+  }
+
+  .common {
+    background-color: green;
   }
 }
 
@@ -220,9 +233,9 @@
 }
 
 .tips-section {
-	font-style: italic;
-	opacity: 0.8;
-	margin-bottom: 20px;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 20px;
 }
 
 .button {
@@ -233,13 +246,13 @@
   color: #111;
   cursor: pointer;
   display: flex;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 18px;
   font-weight: 600;
   height: 48px;
   justify-content: center;
   line-height: 24px;
-  
+
   padding: 0 25px;
   position: relative;
   text-align: center;
@@ -259,7 +272,7 @@
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
