@@ -176,6 +176,10 @@
   margin-bottom: 30px;
   justify-self: center;
   width: 80%;
+
+  sup {
+    font-size: 10px;
+  }
 }
 
 .result-words .tip{
@@ -184,17 +188,17 @@
   color: #ffda4a;
 }
 
-.result-words ul {
-  columns: 3;
-}
-
-.result-words ul li{
+.result-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
   font-size: 19px;
   list-style: square;
   line-height: 45px;
   font-family: monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-left: 30px;
 
   a {
     text-decoration: underline dotted;
@@ -274,6 +278,7 @@
 
 .footer {
   margin-bottom: 100px;
+  margin-top: 50px;
   opacity: 0.8;
   max-width: 80%;
   justify-self: center;
@@ -287,7 +292,7 @@
   margin-bottom: 25px;
 
   div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     line-height: 20px;
   }
 }
