@@ -8,10 +8,33 @@
       <div class="title-sub">the ultimate wordle solver</div>
     </div>
 
-    <div class="tips-main">
-      <span>Best word to begin per MIT: <b>SALET</b></span>
-      <span>2<sup>nd</sup> word: raise, pluto, adieu, ouija</span>
+    <div class="help-main">
+      <details>
+        <summary>How to use this solver?</summary>
+        <div class="help-content">
+          <div class="help-title">If your wordle looks like this:</div>
+          <img alt="image of sample puzzle" src="/assets/sample_puzzle.png">
+
+          <div class="help-title">Fill the Green section like this:</div>
+          <div class="help-sub">(Since 'T' is green in the 4<sup>th</sup> position)</div>
+          <img alt="how to fill the green section" src="/assets/help_green.png">
+
+          <div class="help-title">Fill the Grey section like this:</div>
+          <div class="help-sub">'ALE' from the first row. 'GI' from the second. You can type in any order. Even
+            duplicate letters are ok.</div>
+          <img alt="how to fill the green section" src="/assets/help_grey.png">
+
+          <div class="help-title">Fill the Yellow section like this:</div>
+          <div class="help-sub">'S' appears in the 1<sup>st</sup> position. So put it in P1. 'R' is in 2<sup>nd</sup>
+            position, so put it in P2. 'T' and 'S' are in 5th position, so put them both in P5.</div>
+          <div class="help-sub">For letters in same position, you can type them in any order. E.g.: you can type 'TS' or
+            'ST' in P5.</div>
+          <img alt="how to fill the green section" src="/assets/help_yellow.png">
+
+        </div>
+      </details>
     </div>
+
     <form [formGroup]="form" class="form">
       <div>
         <h3 class="title-section">Green Letters</h3>
@@ -81,7 +104,7 @@
       <div class="result-list">
         <div *ngFor="let word of mostLikelyWords;">
           <div *ngIf="word in mostLikelyWords"></div>
-          <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
+          <a target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}">{{word}}</a>
         </div>
       </div>
     </div>
@@ -91,12 +114,17 @@
       <div *ngIf="filteredWords.length > 0" class="tip">&#9432; Popular words are highlighted.</div>
       <div class="result-list">
         <div *ngFor="let word of filteredWords;">
-          <a [ngClass]="(commonWords.includes(word) || mostLikelyWords.includes(word)) ? 'common':''" target="_blank" href="{{'https://www.dictionary.com/browse/' + word}}" >{{word}}</a>
+          <a [ngClass]="(commonWords.includes(word) || mostLikelyWords.includes(word)) ? 'common':''" target="_blank"
+            href="{{'https://www.dictionary.com/browse/' + word}}">{{word}}</a>
         </div>
       </div>
     </div>
     <a *ngIf="showToTopbutton" class="backTop" href="#top">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.707 9.293-7-7a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 5 11h3v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V11h3a1 1 0 0 0 .707-1.707zM15 9a1 1 0 0 0-1 1v10h-4V10a1 1 0 0 0-1-1H7.414L12 4.414 16.586 9z" style="fill:#fff" data-name="Up"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="m19.707 9.293-7-7a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 5 11h3v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V11h3a1 1 0 0 0 .707-1.707zM15 9a1 1 0 0 0-1 1v10h-4V10a1 1 0 0 0-1-1H7.414L12 4.414 16.586 9z"
+          style="fill:#fff" data-name="Up" />
+      </svg>
     </a>
 
     <div class="footer">
@@ -104,7 +132,8 @@
         <div>[1] Most likely word list is sourced from common Wordle words and Google's 10k common word list.</div>
         <div>[2] All possible word list is from a dictionary of all English words.</div>
         <div>For feedback/bugs, email regileg at g m a i l</div>
-        <div>GitHub: <a target="_blank" href="https://github.com/dvnlgls/wordle-solver">https://github.com/dvnlgls/wordle-solver</a></div>
+        <div>GitHub: <a target="_blank"
+            href="https://github.com/dvnlgls/wordle-solver">https://github.com/dvnlgls/wordle-solver</a></div>
       </div>
       <div class="copyright">&copy; 2024 Cedric Devin</div>
     </div>
