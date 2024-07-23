@@ -173,20 +173,20 @@
 .green {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(5, 50px);
-  column-gap: 25px;
+  grid-template-columns: repeat(5, 60px);
+  column-gap: 13px;
 }
 
 .green input[type="text"] {
-  width: 50px;
   font-size: 2em;
   text-transform: capitalize;
   text-align: center;
   font-weight: bold;
   outline: none;
-  margin-right: 10px;
-  // border: 1px solid transparent;
-  border: 1px solid #212024
+  border: 1px solid #212024;
+  border-radius: 0;
+  // don't remove this. it's for ios safari.
+  -webkit-appearance: none;
 }
 
 .green .active {

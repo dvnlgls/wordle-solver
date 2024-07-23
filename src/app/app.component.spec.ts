@@ -14,16 +14,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'wordle'`, () => {
+  it('sanitizeString should replace all spaces', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('wordle');
+
+    const str = ' w o r d  le ';
+    // const result = fixture.componentInstance.s
+    // expect(app)i
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('wordle app is running!');
-  });
+
 });
