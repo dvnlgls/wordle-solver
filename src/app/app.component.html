@@ -110,7 +110,7 @@
     </div>
 
     <div class="result-words">
-      <h3>Most likely words<sup> [1]</sup> {{ mostLikelyWords.length ? mostLikelyWords.length : '' }}</h3>
+      <h3>Most likely words<sup> *</sup> {{ mostLikelyWords.length ? mostLikelyWords.length : '' }}</h3>
       <div *ngIf="mostLikelyWords.length > 0" class="tip">&#9432; click the word to see its meaning.</div>
       <div class="result-list">
         <div *ngFor="let word of mostLikelyWords;">
@@ -121,7 +121,7 @@
     </div>
 
     <div class="result-words">
-      <h3>All possible words<sup> [2]</sup> {{ filteredWords.length ? filteredWords.length : '' }}</h3>
+      <h3>All possible words<sup> **</sup> {{ filteredWords.length ? filteredWords.length : '' }}</h3>
       <div *ngIf="filteredWords.length > 0" class="tip">&#9432; Popular words are highlighted.</div>
       <div class="result-list">
         <div *ngFor="let word of filteredWords;">
@@ -140,8 +140,8 @@
 
     <div class="footer">
       <div class="footnotes">
-        <div>[1] Most likely word list is sourced from common Wordle words and Google's 10k common word list.</div>
-        <div>[2] All possible word list is from a dictionary of all English words.</div>
+        <div>* Most likely word list is sourced from common Wordle words and Google's 10k common word list.</div>
+        <div>** All possible word list is from a dictionary of all English words.</div>
         <div>For feedback/bugs, email regileg at g m a i l</div>
         <div>GitHub: <a target="_blank"
             href="https://github.com/dvnlgls/wordle-solver">https://github.com/dvnlgls/wordle-solver</a></div>
