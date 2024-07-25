@@ -2328,8 +2328,9 @@ export class AppComponent {
       formValues[key] = formValues[key].toLowerCase();
     });
 
-    this.filteredWords = getFilteredWords(formValues).result;
-    this.mostLikelyWords = getFilteredWords(formValues).resultMostLikely;
+    const results = getFilteredWords(formValues);
+    this.filteredWords = results.resultAllChoices;
+    this.mostLikelyWords = results.resultMostLikely;
   }
 
   reset() {
@@ -2404,7 +2405,7 @@ function removeDuplicateLetters(str: string) {
 
 function getFilteredWords(formValues: object): any {
 
-  const resultObj = { result: [], resultMostLikely: [] };
+  const resultObj = { resultAllChoices: [], resultMostLikely: [] };
   const result: string[] = [];
   const resultMostLikely: string[] = [];
 
@@ -19151,26 +19152,33 @@ function getFilteredWords(formValues: object): any {
 
   // @ts-ignore
   const { greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5, greyString, yellowPosition1, yellowPosition2, yellowPosition3, yellowPosition4, yellowPosition5 } = formValues;
-  const exactlyInPosition = [greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5];
 
-  let lettersToExclude: (string | string[]) = sanitizeString(greyString);
-  lettersToExclude = removeGreenLettersPresentInGrey(lettersToExclude, exactlyInPosition).split('');
+  // don't change the order of processing. Grey letter processing depends on green and yellow.
 
-  const presentButNotInPosition = [sanitizeString(yellowPosition1), sanitizeString(yellowPosition2), sanitizeString(yellowPosition3), sanitizeString(yellowPosition4), sanitizeString(yellowPosition5)];
+  const greenLetters = [greenPosition1, greenPosition2, greenPosition3, greenPosition4, greenPosition5];
+
+  const yellowLetters = [sanitizeString(yellowPosition1), sanitizeString(yellowPosition2), sanitizeString(yellowPosition3), sanitizeString(yellowPosition4), sanitizeString(yellowPosition5)];
+
+  let greyLetters: (string | string[]) = sanitizeString(greyString);
+  
+  // remove letters present in green. 
+  greyLetters = excludeCommonLetters(greyLetters, greenLetters);
+  
+  // remove letters present in yellow.
+  greyLetters = excludeCommonLetters(greyLetters, yellowLetters).split('');
 
   for (const word of allFiveLetterWords) {
-
     let skip = false;
 
     // check for letters that must be in the exact position
-    exactlyInPosition.forEach((letter, index) => {
+    greenLetters.forEach((letter, index) => {
       if (!skip && letter !== '' && word[index] !== letter)
         skip = true;
     })
 
     // leave out words that contain letters that shouldn't be present
     if (!skip) {
-      lettersToExclude.forEach(v => {
+      greyLetters.forEach(v => {
         if (!skip && word.includes(v)) {
           skip = true;
         }
@@ -19179,7 +19187,7 @@ function getFilteredWords(formValues: object): any {
 
     // check for words that contains letters but not in respective positions
     if (!skip) {
-      presentButNotInPosition.forEach((letters, index) => {
+      yellowLetters.forEach((letters, index) => {
         letters.split('').forEach((v: string) => {
           // skip if the letter is in the wrong position
           if (!skip && word[index] === v) {
@@ -19204,7 +19212,7 @@ function getFilteredWords(formValues: object): any {
   }
 
   // @ts-ignore
-  resultObj.result = result;
+  resultObj.resultAllChoices = result;
 
   // @ts-ignore
   resultObj.resultMostLikely = resultMostLikely;
@@ -19212,11 +19220,11 @@ function getFilteredWords(formValues: object): any {
   return resultObj;
 }
 
-function removeGreenLettersPresentInGrey(greyLetters: string, greenLetters: string[]): string {
+function excludeCommonLetters(wordToProcess: string, referenceWord: string[]): string {
   let result = '';
 
-  greyLetters.split('').forEach(v => {
-    if (!greenLetters.includes(v)) {
+  wordToProcess.split('').forEach(v => {
+    if (!referenceWord.includes(v)) {
       result += v;
     }
   });
